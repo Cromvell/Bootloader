@@ -3,15 +3,12 @@
 ;
 [org 0x7c00]
 	
-	mov bx, string
-	call print_string
+	mov dx, 0x1fb6	; Pass hex value to print_hex function
+	call print_hex	; Print hex value
 
-	mov bx, another_string
-	call print_string
+	jmp $			; Halt
 
-	jmp $
-
-%include "print_string.asm"
+%include "funcs.asm"
 
 string:
 	db 'Hello, world!', 0
