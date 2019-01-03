@@ -1,27 +1,27 @@
 ;
-;   Hello!
+;   Hello, world!
 ;
+[org 0x7c00]
+	
+	mov bx, string
+	call print_string
 
-mov ah, 0x0e ; ah = 0x0e scrolling teletype BIOS routine
+	mov bx, another_string
+	call print_string
 
-mov al, 'H'
-int 0x10
-mov al, 'e'
-int 0x10
-mov al, 'l'
-int 0x10
-mov al, 'l'
-int 0x10
-mov al, 'o'
-int 0x10
-mov al, '!'
-int 0x10
+	jmp $
 
-jmp $
+%include "print_string.asm"
+
+string:
+	db 'Hello, world!', 0
+
+another_string:
+	db ' This is OS0', 0
 
 ;
 ;   Padding and magic BIOS number
 ;
 
-times 510-($-$$) db 0
-dw 0xaa55
+	times 510-($-$$) db 0
+	dw 0xaa55
