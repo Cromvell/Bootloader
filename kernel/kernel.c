@@ -2,7 +2,7 @@
 void main() {
     unsigned char* vidmem = (unsigned char*)0xb8000;
 
-    vidmem[1] = 'X';
-    vidmem[3] = 'Y';
-    vidmem[5] = 'Z';
+    vidmem[0] = 'X';
+    vidmem[2] = 'Y';
+    vidmem[4] = 'Z';
 }
